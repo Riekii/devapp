@@ -1,0 +1,7 @@
+{
+  "name": "drawhERE",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
