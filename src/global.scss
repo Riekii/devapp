@@ -24,3 +24,15 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+// ----------------- Estilos globales -----------------
+// Inputs
+.inputURL{
+    --border-color: white; // default underline color
+    --highlight-color-invalid: red; // invalid underline color
+    --highlight-color-valid: white; // valid underline color
+}
+
+ion-item{
+    padding: 0;
+}

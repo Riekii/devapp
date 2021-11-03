@@ -1,0 +1,15 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ folder }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form (ngSubmit)="enviarUrl(urlForm.value)" [formGroup]="urlForm">
+    <ion-item class="inputURL">
+      <ion-input placeholder="Pega aqui la URL" formControlName="url"></ion-input>
+    </ion-item>
+  </form>
+</ion-content>
