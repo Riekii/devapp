@@ -12,9 +12,14 @@
       <ion-input placeholder="Pega aqui la URL" formControlName="url"></ion-input>
     </ion-item>
   </form>
+  
   <!-- <p *ngFor="let linea of respuesta">
     {{linea}}
   </p> -->
   <p id="respuesta">
   </p>
+
+  <ion-button id="llamadasFrecuentes" expand="full" (click)="presentModal()">
+    Llamadas frecuentes
+  </ion-button>
 </ion-content>

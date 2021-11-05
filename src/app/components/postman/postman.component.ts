@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { IonRouterOutlet } from '@ionic/angular';
 import { Storage } from '@ionic/storage-angular';
 import { ApiserviceService } from 'src/app/services/apiservice.service';
+import { PostmanFrecuentesComponent } from '../modal/postman-frecuentes/postman-frecuentes.component';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-postman',
@@ -12,7 +15,9 @@ export class PostmanComponent implements OnInit {
 
   constructor(
     private storage: Storage,
-    private rest: ApiserviceService
+    private rest: ApiserviceService,
+    private routerOutlet: IonRouterOutlet,
+    private modalControler: ModalController
   ) { }
 
   public folder;
@@ -47,6 +52,7 @@ export class PostmanComponent implements OnInit {
     });
   }
 
+  // FORMATEAR EL JSON
   formatJson(jsonString){
     let llaveAbrir = jsonString.split("{").length - 1;
     let llaveCerrar = jsonString.split("}").length - 1;
@@ -55,8 +61,18 @@ export class PostmanComponent implements OnInit {
     jsonString.replace("}","");
     
     let respuesta = jsonString.replace("}","");
-
     return respuesta;
+  }
+  
+  // ABRIR MODAL
+  async presentModal() {
+    const modal = await this.modalControler.create({
+      component: PostmanFrecuentesComponent,
+      cssClass: 'my-custom-class',
+      swipeToClose: true,
+      presentingElement: this.routerOutlet.nativeEl
+    });
+    return await modal.present();
   }
 
 }
