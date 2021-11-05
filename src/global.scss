@@ -28,9 +28,9 @@
 // ----------------- Estilos globales -----------------
 // Inputs
 .inputURL{
-    --border-color: white; // default underline color
+    --border-color: lightgrey; // default underline color
     --highlight-color-invalid: red; // invalid underline color
-    --highlight-color-valid: white; // valid underline color
+    --highlight-color-valid: grey; // valid underline color
 }
 
 ion-item{

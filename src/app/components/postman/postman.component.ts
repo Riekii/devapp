@@ -42,9 +42,21 @@ export class PostmanComponent implements OnInit {
   public respuesta;
   getProducts(): void {
     this.rest.getURL(this.url).subscribe((resp: any) => {
-      this.respuesta = resp;
-      console.log(this.respuesta);
+      let jsonString = JSON.stringify(resp);
+      this.respuesta = this.formatJson(jsonString);
     });
+  }
+
+  formatJson(jsonString){
+    let llaveAbrir = jsonString.split("{").length - 1;
+    let llaveCerrar = jsonString.split("}").length - 1;
+
+    jsonString.replace("{","");
+    jsonString.replace("}","");
+    
+    let respuesta = jsonString.replace("}","");
+
+    return respuesta;
   }
 
 }
