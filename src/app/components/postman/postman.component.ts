@@ -37,9 +37,14 @@ export class PostmanComponent implements OnInit {
   enviarUrl(urlValue){
     this.url = urlValue.url;
     this.urlForm;
-    if(this.storage.get('postmanConocidos') === undefined){
-      this.storage.set('postmanConocidos',this.urlConocidas)
-    }
+
+    // this.urlConocidas = this.storage.get('listaURL')
+    this.urlConocidas.push(this.url)
+    this.storage.set('listaURL', this.urlConocidas)
+
+    this.storage.get('listaURL').then((val) => {
+      console.log('Your age is', val);
+    });
     this.getProducts()
   }
 
