@@ -30,11 +30,12 @@ import { PostmanFrecuentesComponent } from './components/modal/postman-frecuente
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    ModalController
+    ModalController,
+    PostmanFrecuentesComponent
   ],
   bootstrap: [
     AppComponent

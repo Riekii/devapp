@@ -17,7 +17,8 @@ export class PostmanComponent implements OnInit {
     private storage: Storage,
     private rest: ApiserviceService,
     private routerOutlet: IonRouterOutlet,
-    private modalControler: ModalController
+    private modalControler: ModalController,
+    private postmanFrecuentes: PostmanFrecuentesComponent
   ) { }
 
   public folder;
@@ -25,6 +26,9 @@ export class PostmanComponent implements OnInit {
   ngOnInit() {
     this.folder = "Postman";
     this.storage.create();
+    this.storage.get('listaURL').then((val) => {
+      this.urlConocidas = val
+    });
   }
 
   public urlForm = new FormGroup({
@@ -33,25 +37,37 @@ export class PostmanComponent implements OnInit {
 
   // RECOGER URL
   public url: string;
-  public urlConocidas: string[];
+  public urlConocidas: any[] = [];
   enviarUrl(urlValue){
+    // COGER URL DEL FORMULARIO
     this.url = urlValue.url;
-    this.urlForm;
-
-    // this.urlConocidas = this.storage.get('listaURL')
-    this.urlConocidas.push(this.url)
-    this.storage.set('listaURL', this.urlConocidas)
-
+    // RECOGE LAS URL ALMACENADAS Y AÑADE ESTA
     this.storage.get('listaURL').then((val) => {
-      console.log('Your age is', val);
+      this.urlConocidas = val
+      if(this.urlConocidas.length > 50){
+        this.urlConocidas.shift();
+      }
+      this.urlConocidas.push(this.url);
+      this.storage.set('listaURL', this.urlConocidas)
     });
-    this.getProducts()
+
+
+    this.getData()
   }
 
   // ENVIAR URL AL SERVICIO
   public respuesta;
-  getProducts(): void {
+  getData(): void {
     this.rest.getURL(this.url).subscribe((resp: any) => {
+      let jsonString = JSON.stringify(resp);
+      this.respuesta = this.formatJson(jsonString);
+    });
+  }
+
+  // ENVIAR DESDE FRECUENTES
+  getURLFrecuentes(url): void {
+    console.log(url)
+    this.rest.getURL(url).subscribe((resp: any) => {
       let jsonString = JSON.stringify(resp);
       this.respuesta = this.formatJson(jsonString);
     });
@@ -75,8 +91,14 @@ export class PostmanComponent implements OnInit {
       component: PostmanFrecuentesComponent,
       cssClass: 'my-custom-class',
       swipeToClose: true,
-      presentingElement: this.routerOutlet.nativeEl
+      presentingElement: this.routerOutlet.nativeEl,
+      componentProps: { url: this.url }
     });
+    modal.onDidDismiss().then((data)=>{
+      this.storage.get('urlFrecuente').then((val) => {
+        this.getURLFrecuentes(val)
+      });
+    })
     return await modal.present();
   }
 

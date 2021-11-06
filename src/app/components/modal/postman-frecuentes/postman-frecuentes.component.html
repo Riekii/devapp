@@ -1,3 +1,9 @@
+<ion-list id="listaURL">
+  <ion-item *ngFor="let url of urlConocidas; index as i" (click)="sendURL(url)">
+    {{url}}
+  </ion-item>
+</ion-list>
+
 <ion-button class="close" expand="full" (click)="dismiss()">
   CERRAR
 </ion-button>

@@ -1,3 +1,11 @@
 .close{
+    position: absolute;
     height: 50px;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+}
+#listaURL{
+    height: calc(100% - 50px);
+    overflow-y: auto;
 }
