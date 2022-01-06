@@ -15,12 +15,14 @@ import { HttpClientModule } from '@angular/common/http';
 // COMPONENTS
 import { PostmanComponent } from './components/postman/postman.component';
 import { PostmanFrecuentesComponent } from './components/modal/postman-frecuentes/postman-frecuentes.component';
+import { QrComponent } from './components/qr/qr.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostmanComponent,
-    PostmanFrecuentesComponent
+    PostmanFrecuentesComponent,
+    QrComponent
   ],
   entryComponents: [],
   imports: [
