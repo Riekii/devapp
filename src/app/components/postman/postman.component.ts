@@ -66,6 +66,7 @@ export class PostmanComponent implements OnInit {
 
   // ENVIAR DESDE FRECUENTES
   getURLFrecuentes(url): void {
+    console.log(url)
     this.rest.getURL(url).subscribe((resp: any) => {
       let jsonString = JSON.stringify(resp);
       this.respuesta = this.formatJson(jsonString);
@@ -77,30 +78,10 @@ export class PostmanComponent implements OnInit {
     let llaveAbrir = jsonString.split("{").length - 1;
     let llaveCerrar = jsonString.split("}").length - 1;
 
-    let respuestaArrayF0 = jsonString.replace(/,/g,"<br/>").split("{");
-    let respuestaArrayF1 = [];
-    let counterCorchete = 0;
-
-    for (let index = 1; index < respuestaArrayF0.length; index++) {
-      let line = respuestaArrayF0[index];
-
-      line = line.replace(/}/g, "<br/>")
-
-      if((line.split("[").length - 1) !== 0){counterCorchete++}
-      else if((line.split("]").length - 1) !== 0){counterCorchete--}
-
-      let divIn = '<div class="corchete">';
-      let divOut = '</div>';
-      for (let index = 0; index < counterCorchete; index++) {
-        divIn = divIn+divIn;
-        divOut = divOut+divOut;
-      }
-      line = divIn + line + divOut;
-      
-      respuestaArrayF1.push(line)
-    }
-    let respuesta = respuestaArrayF1.join()
-
+    jsonString.replace("{","");
+    jsonString.replace("}","");
+    
+    let respuesta = jsonString.replace("}","");
     return respuesta;
   }
   

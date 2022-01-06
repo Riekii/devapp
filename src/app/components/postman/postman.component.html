@@ -9,15 +9,15 @@
 <ion-content>
   <form (ngSubmit)="enviarUrl(urlForm.value)" [formGroup]="urlForm">
     <ion-item class="inputURL">
-      <ion-input placeholder="Pega aqui la URL" value="{{url}}" formControlName="url"></ion-input>
+      <ion-input placeholder="Pega aqui la URL" formControlName="url"></ion-input>
     </ion-item>
   </form>
   
   <!-- <p *ngFor="let linea of respuesta">
     {{linea}}
   </p> -->
-  <ion-item id="respuesta" [innerHTML]="respuesta">
-  </ion-item>
+  <p id="respuesta">
+  </p>
 
   <ion-button id="llamadasFrecuentes" expand="full" (click)="presentModal()">
     Llamadas frecuentes

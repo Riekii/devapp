@@ -1,5 +1,5 @@
 <ion-list id="listaURL">
-  <ion-item *ngFor="let url of urlConocidas.reverse(); index as i" (click)="sendURL(url)">
+  <ion-item *ngFor="let url of urlConocidas; index as i" (click)="sendURL(url)">
     {{url}}
   </ion-item>
 </ion-list>
