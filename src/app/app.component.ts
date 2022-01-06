@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   public appPages = [
     { title: 'Postman', url: '/postman', icon: 'mail' },
+    { title: 'QR', url: '/qr', icon: 'qr-code' },
   ];
   constructor() {}
 }

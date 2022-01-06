@@ -11,6 +11,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // MODULES
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { HttpClientModule } from '@angular/common/http';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+
 
 // COMPONENTS
 import { PostmanComponent } from './components/postman/postman.component';
@@ -37,7 +39,8 @@ import { QrComponent } from './components/qr/qr.component';
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     ModalController,
-    PostmanFrecuentesComponent
+    PostmanFrecuentesComponent,
+    BarcodeScanner
   ],
   bootstrap: [
     AppComponent
