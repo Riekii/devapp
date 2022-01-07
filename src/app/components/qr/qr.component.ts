@@ -15,17 +15,20 @@ export class QrComponent implements OnInit {
   encodedData: '';
   encodeData: any;
   inputData: any;
+  
   constructor(private barcodeScanner: BarcodeScanner) { } 
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.scanBarcode();
+  }
 
   scanBarcode() {
     const options: BarcodeScannerOptions = {
       preferFrontCamera: false,
-      showFlipCameraButton: true,
+      showFlipCameraButton: false,
       showTorchButton: true,
       torchOn: false,
-      prompt: 'Place a barcode inside the scan area',
+      prompt: 'Pon un código qr o de barras enfrente',
       resultDisplayDuration: 500,
       formats: 'EAN_13,EAN_8,QR_CODE,PDF_417 ',
       orientation: 'portrait',
@@ -34,11 +37,13 @@ export class QrComponent implements OnInit {
     this.barcodeScanner.scan(options).then(barcodeData => {
       console.log('Barcode data', barcodeData);
       this.scannedData = barcodeData;
-
+ 
     }).catch(err => {
       console.log('Error', err);
     });
-  }
+
+  } 
+
 
   createBarcode() {
     this.barcodeScanner.encode(this.barcodeScanner.Encode.TEXT_TYPE, this.inputData).then((encodedData) => {

@@ -6,3 +6,11 @@
     <ion-title>{{ folder }}</ion-title>
   </ion-toolbar>
 </ion-header>
+
+<ion-content>
+  <div *ngIf="scannedData" class="listaElementos">
+    <p class="cancelled"><span>Cancelled: </span>{{scannedData.cancelled}}</p>
+    <p class="format"><span>Format: </span>{{scannedData.format}}</p>
+    <p class="text"><span>Text: </span>{{scannedData.text}}</p>
+  </div>
+</ion-content>
