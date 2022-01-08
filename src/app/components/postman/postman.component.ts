@@ -60,7 +60,8 @@ export class PostmanComponent implements OnInit {
   getData(): void {
     this.rest.getURL(this.url).subscribe((resp: any) => {
       let jsonString = JSON.stringify(resp);
-      this.respuesta = this.formatJson(jsonString);
+      this.respuesta = this.formatJson(this.formatJson(jsonString))
+      console.log(this.respuesta)
     });
   }
 
@@ -81,7 +82,7 @@ export class PostmanComponent implements OnInit {
     jsonString.replace("{","");
     jsonString.replace("}","");
     
-    let respuesta = jsonString.replace("}","");
+    let respuesta = jsonString.split(",");
     return respuesta;
   }
   

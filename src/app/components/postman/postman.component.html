@@ -6,20 +6,23 @@
     <ion-title>{{ folder }}</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content>
+<ion-content class="content">
   <form (ngSubmit)="enviarUrl(urlForm.value)" [formGroup]="urlForm">
     <ion-item class="inputURL">
       <ion-input placeholder="Pega aqui la URL" formControlName="url"></ion-input>
     </ion-item>
   </form>
   
-  <!-- <p *ngFor="let linea of respuesta">
-    {{linea}}
+  <div class="respuesta">
+    <p *ngFor="let linea of respuesta">
+      {{linea}}
+    </p>
+  </div>
+  <!-- <p id="respuesta">
+    {{respuesta}}
   </p> -->
-  <p id="respuesta">
-  </p>
 
-  <ion-button id="llamadasFrecuentes" expand="full" (click)="presentModal()">
+  <ion-button class="fixed bottom" id="llamadasFrecuentes" expand="full" (click)="presentModal()">
     Llamadas frecuentes
   </ion-button>
 </ion-content>

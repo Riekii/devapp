@@ -8,9 +8,21 @@
 </ion-header>
 
 <ion-content>
-  <div *ngIf="scannedData" class="listaElementos">
+  <div class="lista">
     <p class="cancelled"><span>Cancelled: </span>{{scannedData.cancelled}}</p>
     <p class="format"><span>Format: </span>{{scannedData.format}}</p>
     <p class="text"><span>Text: </span>{{scannedData.text}}</p>
+  </div>
+  <div class="absolute bottom container horizontal">
+    <div class="elemento vertical">
+      <button (click)="scanBarcode()" class="btn">Leer código qr
+        <ion-icon class="icon" name="qr-code-outline"></ion-icon>
+      </button>
+    </div>
+    <div class="elemento">
+      <button class="btn ">Generar código qr
+        <ion-icon class="icon" name="push-outline"></ion-icon>
+      </button>
+    </div>
   </div>
 </ion-content>

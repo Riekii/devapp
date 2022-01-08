@@ -10,7 +10,6 @@ export class QrComponent implements OnInit {
 
   public folder: string = "QR"
 
-
   scannedData: any;
   encodedData: '';
   encodeData: any;
@@ -19,9 +18,19 @@ export class QrComponent implements OnInit {
   constructor(private barcodeScanner: BarcodeScanner) { } 
 
   ngOnInit() {
-    this.scanBarcode();
+    this.generateDefault();
   }
 
+  // Llenar qr con datos de ejemplo
+  generateDefault(){
+    this.scannedData = {
+      cancelled: "Cancelled",
+      format: "Formato",
+      text: "Texto"
+    }
+  }
+
+  // Escanear código de barras
   scanBarcode() {
     const options: BarcodeScannerOptions = {
       preferFrontCamera: false,
@@ -35,9 +44,13 @@ export class QrComponent implements OnInit {
     };
 
     this.barcodeScanner.scan(options).then(barcodeData => {
-      console.log('Barcode data', barcodeData);
-      this.scannedData = barcodeData;
- 
+      if(barcodeData){
+        console.log('Barcode data', barcodeData);
+        this.scannedData = barcodeData;
+      }
+      else{
+        this.generateDefault();
+      }
     }).catch(err => {
       console.log('Error', err);
     });

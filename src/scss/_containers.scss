@@ -1,0 +1,32 @@
+.container{
+    width: 100%;
+    display: flex;
+    justify-content:space-evenly;
+    flex-wrap: nowrap;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    &.horizontal{
+        flex-direction: row;
+    }
+    &.vertical{
+        flex-direction: column;
+    }
+
+    .elemento{
+        display: flex;
+        justify-content:space-evenly;
+        flex-wrap: nowrap;
+        &.horizontal{
+            flex-direction: row;
+        }
+        &.vertical{
+            flex-direction: column;
+        }
+    }
+}
+
+.lista{
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
