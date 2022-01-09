@@ -8,10 +8,16 @@
 </ion-header>
 
 <ion-content>
+  <div class="subtitulo">
+    <p>Código QR Leido</p>
+  </div>
   <div class="lista">
     <p class="cancelled"><span>Cancelled: </span>{{scannedData.cancelled}}</p>
     <p class="format"><span>Format: </span>{{scannedData.format}}</p>
     <p class="text"><span>Text: </span>{{scannedData.text}}</p>
+  </div>
+  <div class="lista">
+    <input type="text" class="input"/>
   </div>
   <div class="absolute bottom container horizontal">
     <div class="elemento vertical">
