@@ -13,7 +13,7 @@ export class QrComponent implements OnInit {
   scannedData: any;
   encodedData: '';
   encodeData: any;
-  inputData: any;
+  inputData: any = "cosa";
   
   constructor(private barcodeScanner: BarcodeScanner) { } 
 
@@ -45,7 +45,6 @@ export class QrComponent implements OnInit {
 
     this.barcodeScanner.scan(options).then(barcodeData => {
       if(barcodeData){
-        console.log('Barcode data', barcodeData);
         this.scannedData = barcodeData;
       }
       else{
@@ -57,7 +56,7 @@ export class QrComponent implements OnInit {
 
   } 
 
-
+  // Crear código de barras
   createBarcode() {
     this.barcodeScanner.encode(this.barcodeScanner.Encode.TEXT_TYPE, this.inputData).then((encodedData) => {
       console.log(encodedData);
