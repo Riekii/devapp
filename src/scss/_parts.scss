@@ -1,0 +1,6 @@
+.bloqueDibujo{
+    max-height: 100%;
+    &.bot{
+        z-index: -1000;
+    }
+} 

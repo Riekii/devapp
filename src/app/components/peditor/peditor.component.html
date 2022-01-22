@@ -11,9 +11,19 @@
 
   <div class="personaje">
     <div class="parte">
-      <button class="arrow-left"><ion-icon class="arrow" name="caret-back-outline"></ion-icon></button>
+      <button class="arrow-left"><ion-icon (click)="pasarElemento('top', false)" class="arrow" name="caret-back-outline"></ion-icon></button>
         <app-top [seleccion]="stop"></app-top>
-      <button class="arrow-right"><ion-icon class="arrow" name="caret-forward-outline"></ion-icon></button>
+      <button class="arrow-right"><ion-icon (click)="pasarElemento('top', true)" class="arrow" name="caret-forward-outline"></ion-icon></button>
+    </div>
+    <div class="parte mid">
+      <button class="arrow-left"><ion-icon (click)="pasarElemento('mid', false)" class="arrow" name="caret-back-outline"></ion-icon></button>
+        <app-mid [seleccion]="smid"></app-mid>
+      <button class="arrow-right"><ion-icon (click)="pasarElemento('mid', true)" class="arrow" name="caret-forward-outline"></ion-icon></button>
+    </div>
+    <div class="parte bot">
+      <button class="arrow-left"><ion-icon (click)="pasarElemento('bot', false)" class="arrow" name="caret-back-outline"></ion-icon></button>
+        <app-bot style="z-index: -1000;" [seleccion]="sbot"></app-bot>
+      <button class="arrow-right"><ion-icon (click)="pasarElemento('bot', true)" class="arrow" name="caret-forward-outline"></ion-icon></button>
     </div>
   </div>
 
