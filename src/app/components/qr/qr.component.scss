@@ -5,3 +5,18 @@ button .icon{
 .container{
     background-color: #000000;
 }
+.lista{
+    width: 100%;
+    p.escribeQR{
+        font-size: 0.8em;
+        text-align: center;
+
+    }
+    input{
+        border-radius: 0;
+        border: none;
+        width: 100%;
+        height:  30px;
+        margin-bottom: 20px;
+    }
+}

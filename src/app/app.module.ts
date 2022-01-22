@@ -18,13 +18,21 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { PostmanComponent } from './components/postman/postman.component';
 import { PostmanFrecuentesComponent } from './components/modal/postman-frecuentes/postman-frecuentes.component';
 import { QrComponent } from './components/qr/qr.component';
+import { PeditorComponent } from './components/peditor/peditor.component';
+import { TopComponent } from './components/peditor/top/top.component';
+import { MidComponent } from './components/peditor/mid/mid.component';
+import { BotComponent } from './components/peditor/bot/bot.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostmanComponent,
     PostmanFrecuentesComponent,
-    QrComponent
+    QrComponent,
+    PeditorComponent,
+    TopComponent,
+    MidComponent,
+    BotComponent
   ],
   entryComponents: [],
   imports: [

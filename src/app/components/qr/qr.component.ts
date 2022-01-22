@@ -13,7 +13,9 @@ export class QrComponent implements OnInit {
   scannedData: any;
   encodedData: '';
   encodeData: any;
-  inputData: any = "cosa";
+  inputData: any;
+
+  public leido = false
   
   constructor(private barcodeScanner: BarcodeScanner) { } 
 
@@ -46,6 +48,7 @@ export class QrComponent implements OnInit {
     this.barcodeScanner.scan(options).then(barcodeData => {
       if(barcodeData){
         this.scannedData = barcodeData;
+        this.leido = true;
       }
       else{
         this.generateDefault();
