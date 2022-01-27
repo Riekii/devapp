@@ -9,7 +9,7 @@ export class PeditorComponent implements OnInit {
 
   public folder = 'Editor'
 
-  public maxpartes = 3;
+  public maxpartes = 4;
 
   public stop = 1
   public smid = 1
